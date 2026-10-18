@@ -46,7 +46,8 @@ COLS_CATEGORICAS = ["Nombre_territorio", "REGION", "SEGMENTO", "MARCA"]
 FEATURES         = COLS_NUMERICAS + COLS_CATEGORICAS
 
 # Variables EXCLUIDAS y por qué (para la defensa):
-#   FLAG_UNICEF         → no figura en el diccionario.
+#   FLAG_UNICEF         → no figura en el diccionario del docente; no sabemos si
+#                          estaría disponible al momento de predecir.
 #   FLAG_LIMA_PROVINCIA → 100% redundante con REGION (verificado fila por fila).
 #   SEXO                → equidad: excluirla cuesta solo -0.004 de AUC.
 
@@ -69,7 +70,7 @@ MODEL_REGISTRY_NAME = "SeguroAntirrobos-Clasificador"
 SKOPS_TRUSTED_TYPES = ["numpy.dtype", "sklearn.tree._tree.Tree"]
 
 # ── Validación cruzada y tuning (Unidad 06) ──────────────────────────────────
-CV_FOLDS = 5
+CV_FOLDS = 3          # 3 folds: el tuning corre en pocos minutos en un Codespace de 2 núcleos
 SCORING  = "roc_auc"       # AUC: no depende de un umbral fijo (con 2.6% positivos el F1 engaña)
 
 # ── Quality gate (Unidades 04 y 10) ──────────────────────────────────────────
