@@ -1,0 +1,31 @@
+# ── Entorno Python ───────────────────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ── Secretos ─────────────────────────────────────────────────────────────────
+.env
+
+# ── MLflow: se regenera ejecutando el pipeline (como mlruns/ en la U6) ────────
+mlruns/
+mlflow.db
+mlartifacts/
+
+# ── Artefactos pesados o regenerables del pipeline ───────────────────────────
+# Se versionan solo los livianos que sirven de evidencia (json de métricas, png).
+artifacts/*.csv
+artifacts/*.pkl
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+
+# ── Datos: el CSV lo versiona DVC (dvc add crea data/raw/.gitignore) ──────────
+# No se ignora aquí para no bloquear a DVC; DVC agrega su propia regla.
+
+# ── Sistema / editor ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
