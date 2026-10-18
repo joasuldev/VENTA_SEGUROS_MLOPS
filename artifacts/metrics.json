@@ -1,0 +1,20 @@
+{
+  "precision": 0.05,
+  "captura_top20": 0.412,
+  "recall": 0.564,
+  "f1": 0.0918,
+  "cv_auc": 0.6841,
+  "pr_auc": 0.0574,
+  "auc": 0.7079,
+  "quality_gate": 1.0,
+  "captura_top10": 0.252,
+  "lift_top10": 2.52,
+  "modelo": "RandomForestClassifier (Pipeline sklearn)",
+  "run_name": "RandomSearch-RF",
+  "run_id": "4eadbd59e2fa4b82b260b9a9652559bb",
+  "corte_prioridad_alta": 0.5692,
+  "corte_prioridad_media": 0.501,
+  "tasa_compra_promedio": 0.0268,
+  "auc_minimo": 0.65,
+  "lift_top10_minimo": 2.0
+}
