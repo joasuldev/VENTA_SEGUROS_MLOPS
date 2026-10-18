@@ -1,0 +1,9 @@
+{
+  "filas_train": 18676,
+  "filas_test": 9340,
+  "clientes_train": 12418,
+  "clientes_test": 6211,
+  "tasa_compra_train": 0.0267,
+  "tasa_compra_test": 0.0268,
+  "clientes_compartidos": 0
+}
