@@ -1,0 +1,8 @@
+# requirements-api.txt — Solo lo que necesita la API dentro de Docker.
+# Imagen más liviana y build más rápido: sin MLflow, DVC ni pytest.
+scikit-learn==1.9.1     # MISMA versión que entrenó modelo.pkl (si difiere, el pickle puede fallar)
+pandas>=2.0
+numpy>=1.26
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.0

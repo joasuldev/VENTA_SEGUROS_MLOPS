@@ -1,0 +1,15 @@
+# Lo que NO entra al contexto de build de Docker (imagen más liviana y build más rápido)
+.venv/
+.git/
+.dvc/
+__pycache__/
+.pytest_cache/
+mlruns/
+mlflow.db
+data/
+notebooks/
+references/
+tests/
+*.log
+artifacts/*.csv
+.env

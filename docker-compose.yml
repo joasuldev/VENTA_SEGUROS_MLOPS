@@ -1,0 +1,31 @@
+# docker-compose.yml — API + MLflow UI con un solo comando (patrón Unidad 05)
+# Uso en Codespace: docker compose up --build   → puertos 8000 (API) y 5000 (MLflow)
+services:
+
+  # ── Servicio 1: API de predicción ─────────────────────────────────────────
+  api:
+    build: .
+    container_name: seguro-antirrobos-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  # ── Servicio 2: MLflow UI con los runs del pipeline ───────────────────────
+  # MLflow guarda los artefactos con rutas absolutas del Codespace
+  # (/workspaces/VENTA_SEGUROS_MLOPS/mlruns), por eso se monta el repo en esa
+  # MISMA ruta dentro del contenedor (mismo truco que usó el docente en la U5).
+  mlflow:
+    image: python:3.14-slim
+    container_name: seguro-antirrobos-mlflow
+    command:
+      - bash
+      - -c
+      - >-
+        pip install -q "mlflow>=3.0,<4.0" &&
+        exec mlflow ui --host 0.0.0.0 --port 5000
+        --backend-store-uri sqlite:////workspaces/VENTA_SEGUROS_MLOPS/mlflow.db
+        --allowed-hosts "localhost:*,127.0.0.1:*,*.app.github.dev"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/workspaces/VENTA_SEGUROS_MLOPS
